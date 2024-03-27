@@ -1,6 +1,5 @@
 type ParsedMovement<'a> = (&'a str, &'a str, &'a str);
 
-#[derive(Debug)]
 pub enum Movement {
     Up(u64),
     Down(u64),
@@ -19,7 +18,6 @@ impl<'a> Into<Movement> for &'a ParsedMovement<'a> {
     }
 }
 
-#[derive(Debug)]
 pub struct Submarine {
     movements: Vec<Movement>,
     horizontal_pos: u64,
@@ -49,7 +47,7 @@ impl Submarine {
                 Movement::Up(y) => self.depth_pos -= y,
                 Movement::Down(y) => self.depth_pos += y,
                 Movement::Forward(x) => self.horizontal_pos += x,
-                Movement::Stationary(__) => {
+                Movement::Stationary(_) => {
                     self.horizontal_pos += 0;
                     self.depth_pos += 0;
                 }
@@ -70,7 +68,7 @@ impl Submarine {
                     self.horizontal_pos += x;
                     self.depth_pos += self.aim * x;
                 }
-                Movement::Stationary(__) => {
+                Movement::Stationary(_) => {
                     self.horizontal_pos += 0;
                     self.depth_pos += 0;
                     self.aim += 0;
