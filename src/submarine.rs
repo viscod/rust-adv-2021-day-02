@@ -47,10 +47,7 @@ impl Submarine {
                 Movement::Up(y) => self.depth_pos -= y,
                 Movement::Down(y) => self.depth_pos += y,
                 Movement::Forward(x) => self.horizontal_pos += x,
-                Movement::Stationary => {
-                    self.horizontal_pos += 0;
-                    self.depth_pos += 0;
-                }
+                Movement::Stationary => {}
             }
         }
     }
@@ -68,11 +65,7 @@ impl Submarine {
                     self.horizontal_pos += x;
                     self.depth_pos += self.aim * x;
                 }
-                Movement::Stationary => {
-                    self.horizontal_pos += 0;
-                    self.depth_pos += 0;
-                    self.aim += 0;
-                }
+                Movement::Stationary => {}
             }
         }
     }
