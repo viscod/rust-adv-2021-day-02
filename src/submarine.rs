@@ -4,7 +4,7 @@ pub enum Movement {
     Up(u64),
     Down(u64),
     Forward(u64),
-    Stationary(u64),
+    Stationary,
 }
 
 impl<'a> Into<Movement> for &'a ParsedMovement<'a> {
@@ -13,7 +13,7 @@ impl<'a> Into<Movement> for &'a ParsedMovement<'a> {
             "up" => Movement::Up(self.2.parse::<u64>().expect("invalid movement input")),
             "down" => Movement::Down(self.2.parse::<u64>().expect("invalid movement input")),
             "forward" => Movement::Forward(self.2.parse::<u64>().expect("invalid movement input")),
-            _ => Movement::Stationary(0 as u64),
+            _ => Movement::Stationary,
         }
     }
 }
@@ -47,7 +47,7 @@ impl Submarine {
                 Movement::Up(y) => self.depth_pos -= y,
                 Movement::Down(y) => self.depth_pos += y,
                 Movement::Forward(x) => self.horizontal_pos += x,
-                Movement::Stationary(_) => {
+                Movement::Stationary => {
                     self.horizontal_pos += 0;
                     self.depth_pos += 0;
                 }
@@ -68,7 +68,7 @@ impl Submarine {
                     self.horizontal_pos += x;
                     self.depth_pos += self.aim * x;
                 }
-                Movement::Stationary(_) => {
+                Movement::Stationary => {
                     self.horizontal_pos += 0;
                     self.depth_pos += 0;
                     self.aim += 0;
