@@ -3,13 +3,19 @@ running 2 tests
 ii
 test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-bench_part_1            time:   [55.537 µs 57.832 µs 59.921 µs]
-                        change: [-6.7003% -3.2967% +0.4553%] (p = 0.07 > 0.05)
-                        No change in performance detected.
+bench_part_1            time:   [47.371 µs 49.511 µs 51.900 µs]
+                        change: [-13.537% -9.9337% -6.1022%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 19 outliers among 100 measurements (19.00%)
+  3 (3.00%) high mild
+  16 (16.00%) high severe
 
-bench_part_1 #2         time:   [51.353 µs 53.204 µs 55.098 µs]
-                        change: [-0.3598% +4.1070% +8.4511%] (p = 0.07 > 0.05)
-                        No change in performance detected.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
+bench_part_1 #2         time:   [51.802 µs 54.097 µs 56.387 µs]
+                        change: [-11.212% -7.6766% -4.0002%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 26 outliers among 100 measurements (26.00%)
+  7 (7.00%) low severe
+  1 (1.00%) low mild
+  4 (4.00%) high mild
+  14 (14.00%) high severe
 
