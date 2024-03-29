@@ -10,9 +10,9 @@ pub enum Movement {
 impl<'a> Into<Movement> for &'a ParsedMovement<'a> {
     fn into(self) -> Movement {
         match self.0 {
-            "up" => Movement::Up(self.2.parse::<u64>().expect("invalid movement input")),
-            "down" => Movement::Down(self.2.parse::<u64>().expect("invalid movement input")),
-            "forward" => Movement::Forward(self.2.parse::<u64>().expect("invalid movement input")),
+            "up" => Movement::Up(self.2.parse::<u64>().unwrap_or(0)),
+            "down" => Movement::Down(self.2.parse::<u64>().unwrap_or(0)),
+            "forward" => Movement::Forward(self.2.parse::<u64>().unwrap_or(0)),
             _ => Movement::Stationary,
         }
     }
