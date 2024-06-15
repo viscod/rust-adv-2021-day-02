@@ -22,9 +22,9 @@ pub fn parse_submarine<P: AsRef<Path>>(path: P) -> Option<Submarine> {
     if let Ok(parsed) = block(&movements_data) {
         let mut submarine = Submarine::default();
 
-        let mut movments = parsed.1.iter();
+        let mut movements = parsed.1.iter();
 
-        while let Some(movement_tuple) = movments.next() {
+        while let Some(movement_tuple) = movements.next() {
             let movement: Movement = movement_tuple.into();
             submarine.add_movement(movement);
         }
